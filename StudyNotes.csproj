@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Difference.png" />
+    <None Remove="Resources\Import.png" />
+    <None Remove="Resources\Intersection.png" />
+    <None Remove="Resources\Union.png" />
+    <None Remove="Resources\XOR.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="9.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="halcondotnet">
+      <HintPath>C:\Users\Lenovo\AppData\Local\Programs\MVTec\HALCON-22.05-Progress\bin\dotnet35\halcondotnet.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Difference.png" />
+    <Resource Include="Resources\Import.png" />
+    <Resource Include="Resources\Intersection.png" />
+    <Resource Include="Resources\Union.png" />
+    <Resource Include="Resources\XOR.png" />
+  </ItemGroup>
+
+</Project>
