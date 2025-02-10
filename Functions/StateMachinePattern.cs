@@ -1,4 +1,5 @@
-﻿using StudyNotes.CustomAttribute;
+﻿using StudyNotes.Common;
+using StudyNotes.CustomAttribute;
 using StudyNotes.Model;
 using System;
 using System.Collections.Generic;
@@ -14,16 +15,25 @@ namespace StudyNotes.Functions
         /// 状态机开始
         /// </summary>
         [Method]
-        public void StateMachineRun()
+        public async void StateMachineRun()
         {
-            StateMachine sm = new StateMachine();
-            StateA s = new StateA(sm);
-            sm.Current = s;
-            while (true)
+            await Task.Run(() =>
             {
-                sm.Execute();
-                Thread.Sleep(1000);
-            }
+                var Token = GlobalService.Instance.CancellationTokenSource.Token;
+
+                StateMachine sm = new StateMachine();
+                StateA s = new StateA(sm);
+                sm.Current = s;
+                while (true)
+                {
+                    if (Token.IsCancellationRequested)
+                    {
+                        break;
+                    }
+                    sm.Execute();
+                    Thread.Sleep(1000);
+                }
+            });
         }
     }
 }

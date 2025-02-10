@@ -26,6 +26,8 @@ namespace StudyNotes.Common
         /// </summary>
         public EventAggregator EventAggregator { get; private set; } = new EventAggregator();
 
+        public CancellationTokenSource CancellationTokenSource { get; set; } = new CancellationTokenSource();
+
         /// <summary>
         /// 测试方法集合
         /// </summary>

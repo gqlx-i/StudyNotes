@@ -48,12 +48,16 @@
                 <RowDefinition Height="60"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
             <Label Grid.Row="0" Grid.Column="0" Content="Methods:" Height="40" VerticalContentAlignment="Center" FontSize="20"/>
             <ComboBox Grid.Row="0" Grid.Column="1" Width="150" ItemsSource="{Binding Methods}" SelectedItem="{Binding SelectedMethod}" DisplayMemberPath="Name" ToolTip="{Binding Path=SelectedMethod.Name}" Height="40" FontSize="15" VerticalContentAlignment="Center"/>
-            <Button Grid.Row="1" Grid.Column="1" Width="100" Height="40" Margin="10,0" Command="{Binding ExcuteCommand}" Content="执行" FontSize="20"/>
+            <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5,0">
+                <Button Visibility="Collapsed" Width="90" Height="40" Margin="5,0" Command="{Binding ResetCommand}" Content="重置" FontSize="20"/>
+                <Button Width="90" Height="40" Margin="5,0" Command="{Binding ExcuteCommand}" Content="执行" FontSize="20"/>
+                <Button Width="90" Height="40" Margin="5,0" Command="{Binding CancelCommand}" Content="取消" FontSize="20"/>
+            </StackPanel>
         </Grid>
         <GroupBox Grid.Row="0" Grid.Column="2" Width="300" Header="参数" Margin="5">
             <!--<TextBox Text="{Binding SelectedMethod.Params, Converter={StaticResource Array2String}}" Width="260" Height="50" Margin="10"/>-->
