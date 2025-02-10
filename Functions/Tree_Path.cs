@@ -2,10 +2,11 @@ using System.IO;
 using System.Text;
 using System;
 using StudyNotes.CustomAttribute;
+using System.Diagnostics;
 
 namespace StudyNotes.Functions
 {
-    class Tree_Path
+    public class Tree_Path
     {
         /// <summary>
         /// 展开一个路径下的所有文件
@@ -15,13 +16,13 @@ namespace StudyNotes.Functions
         [Method(@"C:\Users\Lenovo\Desktop\halcon_test", 0)]
         public void Tree(string path, int rank = 0)
         {
-            Console.WriteLine(GetRowString(path, rank, false));
+            Debug.WriteLine(GetRowString(path, rank, false));
             string[] paths = Directory.GetFileSystemEntries(path);
             foreach (var item in paths)
             {
                 if (File.Exists(item))
                 {
-                    Console.WriteLine(GetRowString(item, rank));
+                    Debug.WriteLine(GetRowString(item, rank));
                 }
                 else
                 {

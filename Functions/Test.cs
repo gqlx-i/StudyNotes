@@ -1,6 +1,7 @@
 ﻿using StudyNotes.CustomAttribute;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ namespace StudyNotes.Functions
         {
             foreach (var item in list)
             {
-                Console.WriteLine(item);
+                Debug.WriteLine(item);
             }
         }
 
@@ -29,7 +30,7 @@ namespace StudyNotes.Functions
         [Method()]
         public static void fun3()
         {
-            Console.WriteLine("fun3");
+            Debug.WriteLine("fun3");
         }
     }
 
