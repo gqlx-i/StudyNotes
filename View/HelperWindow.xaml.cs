@@ -21,17 +21,21 @@ namespace StudyNotes.View
     /// </summary>
     public partial class HelperWindow : NotifyWindow
     {
+        private static readonly Lazy<HelperWindow> _instance = new Lazy<HelperWindow>(() => new HelperWindow());
+
+        public static HelperWindow Instance { get; set; } = _instance.Value;
+
+        private HelperWindow()
+        {
+            InitializeComponent();
+            this.DataContext = this;
+        }
+
         private NotifyUserControl _currentControl;
         public NotifyUserControl CurrentControl
         {
             get => _currentControl;
             set => SetAndNotify(ref _currentControl, value);
-        }
-
-        public HelperWindow()
-        {
-            InitializeComponent();
-            this.DataContext = this;
         }
 
         public void Show(string controlName)

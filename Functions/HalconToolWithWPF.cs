@@ -11,10 +11,8 @@ using System.Threading.Tasks;
 
 namespace StudyNotes.Functions
 {
-    public class WPFTool
+    public class HalconToolWithWPF
     {
-        public static HelperWindow HelperWindow { get; set; }= new HelperWindow();
-
         /// <summary>
         /// path路径实时绘图
         /// </summary>
@@ -22,7 +20,7 @@ namespace StudyNotes.Functions
         [Method(nameof(PathPreviewControl))]
         public void PathPreview(string controlName)
         {
-            HelperWindow.Show(controlName);
+            HelperWindow.Instance.Show(controlName);
         }
 
         /// <summary>
@@ -32,7 +30,13 @@ namespace StudyNotes.Functions
         [Method(nameof(ROICanvasControl))]
         public void ROICanvas(string controlName)
         {
-            HelperWindow.Show(controlName);
+            HelperWindow.Instance.Show(controlName);
+        }
+
+        [Method(nameof(CalibrationAssistantControl))]
+        public void CalibrationAssistant(string controlName)
+        {
+            HelperWindow.Instance.Show(controlName);
         }
     }
 }

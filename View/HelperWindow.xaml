@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:StudyNotes.View"
         xmlns:com="clr-namespace:StudyNotes.Common"
         mc:Ignorable="d"
-        Title="HelperWindow" Height="450" Width="800">
+        ResizeMode="NoResize"
+        Title="HelperWindow" Height="500" Width="800">
     <Grid>
         <ContentControl Content="{Binding CurrentControl}"/>
     </Grid>
